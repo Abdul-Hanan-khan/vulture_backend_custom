@@ -10,17 +10,6 @@ router.get('/ninjas', function (req, res, next) {
   res.send({ type: "GET" })
 });
 
-
-
-
-
-
-
-
-
-
-
-
 router.post('/ninjas', function (req, res, next) {
 
   Ninga.create(req.body).then(function (ninja) {
@@ -32,29 +21,37 @@ router.post('/ninjas', function (req, res, next) {
 });
 
 
-
-
-
-
-
-
-
-
-
-
 router.put('/ninjas/:id', function (req, res, next) {
 
   res.send({ type: "PUT" })
 });
 
-router.delete('/ninjas/:id', function (req, res, next) {
 
-  try {
-    res.send({ type: "DELETE" })
-  } catch (error) {
-    console.log(error)
-    res.send({ message: 'something went wrong' })
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+router.delete('/ninjas/:id', function (req, res, next) {
+  Ninga.findByIdAndRemove({ _id: req.params.id }).then(function (ningaaa) {
+    res.json({
+      "status": true,
+      'data':ningaaa
+
+    });
+  });
+  // console.log(req.params.id);
+
 });
 
 
