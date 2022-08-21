@@ -1,6 +1,8 @@
 const express = require("express");
 
 const router=express.Router();
+
+const Ninga =require('../models/ninja');
 // get a list of ningas 
 
 router.get('/ninjas',function(req,res){
@@ -11,12 +13,9 @@ router.get('/ninjas',function(req,res){
 
 router.post('/ninjas',function(req,res){
 
-    console.log(req.body);
-
-    res.json({
-      data: req.body
-    });
-    // res.send(req.body);
+  Ninga.create(req.body).then(function(ninja){
+    res.send(ninja);
+  });
 });
 
 router.put('/ninjas/:id',function(req,res){

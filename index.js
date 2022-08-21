@@ -21,12 +21,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 mongoose
   .connect(process.env.DB)
   .then(() => {
-    
+
     console.log("Database Connection");
   })
   .catch((err) => {
     console.log("DB Not Connected");
   });
+
+  mongoose.Promise=global.Promise;
   
 
 app.use(upload.array()); 
