@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 var multer = require('multer');
 const mongoose = require('mongoose');
 require("dotenv/config");
-// const nija = require("./models/ninja");
 
 var upload = multer();
 
@@ -12,7 +11,6 @@ const app = express();
 //   app.use(express.json());
 app.use(bodyParser.json());
 
-app.use('/api', require('./routes/api'));
 app.use('/api/user', require('./routes/user'));
 app.use('/api/home',require('./routes/get_all_data'));
 
