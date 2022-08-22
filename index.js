@@ -1,6 +1,7 @@
 
 const express = require("express");
 const bodyParser = require('body-parser');
+const http = require('http')
 var multer = require('multer');
 const mongoose = require('mongoose');
 require("dotenv/config");
@@ -41,6 +42,10 @@ mongoose.Promise = global.Promise;
 
 app.use(upload.array());
 app.use(express.static('public'));
+
+
+
+
 
 
 app.listen(process.env.PORT_NO || 4000, function () {                 // setup listeners for requests
