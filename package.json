@@ -1,0 +1,38 @@
+{
+  "name": "rest-api-playlist",
+  "version": "1.0.0",
+  "description": "i am learning for this few commands are",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "http": "^0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.5.2",
+    "multer": "^1.4.5-lts.1"
+  },
+"engines": {
+  "node": "16.17.0"
+},
+
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abdul-Hanan-khan/vulture_backend_custom.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Abdul-Hanan-khan/vulture_backend_custom/issues"
+  },
+  "homepage": "https://github.com/Abdul-Hanan-khan/vulture_backend_custom#readme"
+}
