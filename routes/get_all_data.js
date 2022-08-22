@@ -9,7 +9,9 @@ require("dotenv/config");
 
 
 router.get('/getAllData', verifyToken, (req, res) => {
-    console.log(process.env.SECRETE_KEY);
+    console.log("get data "+process.env.SECRETE_KEY);
+    console.log("get token "+ req.token);
+
 
     jwt.verify(req.token, process.env.SECRETE_KEY, (err, authData) => {
         if (err) {
@@ -17,7 +19,7 @@ router.get('/getAllData', verifyToken, (req, res) => {
             res.status(403).json({
                 "status": false,
                 "msg": "Authorization failed ",
-                "data": []
+                "data": err
               });
         } else {
             res.json({

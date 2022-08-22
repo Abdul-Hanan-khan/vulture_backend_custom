@@ -43,9 +43,9 @@ router.post("/signup", (req, res, next) => {
               address: req.body.address,
             });
 
-            jwt.sign({ user }, process.env.SECRETE_KEY, { expiresIn: '30s' }, (err, token) => {
+            jwt.sign({ user }, process.env.SECRETE_KEY,(err, token) => {
               user.token = token;
-            });
+            })
             user
               .save()
               .then(result => {
