@@ -8,29 +8,27 @@ require("dotenv/config");
 
 
 
-router.get('/getAllData', (req, res) => {
+router.get('/getAllData',verifyToken, (req, res) => {
     console.log("get data "+process.env.SECRETE_KEY);
     console.log("get token "+ req.token);
-    res.status(200).json({
-                    "type": "simple get",
-                  });
 
-    // jwt.verify(req.token, process.env.SECRETE_KEY, (err, authData) => {
-    //     if (err) {
-    //         //authorization failed
-    //         res.status(403).json({
-    //             "status": false,
-    //             "msg": "Authorization failed ",
-    //             "data": err
-    //           });
-    //     } else {
-    //         res.json({
-    //             "status": true,
-    //             "msg": "Authorized by Admin",
-    //             "data": []
-    //           });
-    //     }
-    // });
+
+    jwt.verify(req.token, process.env.SECRETE_KEY, (err, authData) => {
+        if (err) {
+            //authorization failed
+            res.status(403).json({
+                "status": false,
+                "msg": "Authorization failed ",
+                "data": err
+              });
+        } else {
+            res.json({
+                "status": true,
+                "msg": "Authorized by Admin",
+                "data": []
+              });
+        }
+    });
 });
 
 function verifyToken(req, res, next) {
